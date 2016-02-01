@@ -38,8 +38,7 @@ func DecoderFactory() goa.EncoderFactory {
 	return &Factory{}
 }
 
-// NewDecoder returns a new json.Decoder that satisfies goa.Decoder
-// The built in codec.Decoder has a compatible Reset() func
+// NewDecoder returns a new proto.Decoder that satisfies goa.Decoder
 func (f *Factory) NewDecoder(r io.Reader) goa.Decoder {
 	return &ProtoDecoder{
 		pBuf: proto.NewBuffer(nil),
@@ -80,8 +79,7 @@ func EncoderFactory() goa.EncoderFactory {
 	return &Factory{}
 }
 
-// NewEncoder returns a new json.Encoder that satisfies goa.Encoder
-// The built in codec.Encoder has a compatible Reset() func
+// NewEncoder returns a new proto.Encoder that satisfies goa.Encoder
 func (f *Factory) NewEncoder(w io.Writer) goa.Encoder {
 	return &ProtoEncoder{
 		pBuf: proto.NewBuffer(nil),
