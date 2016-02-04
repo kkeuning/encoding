@@ -22,5 +22,6 @@ deploy:
   local-dir: public/godoc/encoding
   upload-dir: public/godoc/encoding
   skip-cleanup: true
+  acl: public-read
   on:
     repo: goadesign/encoding
