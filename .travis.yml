@@ -20,7 +20,7 @@ deploy:
     secure: UngRtgoH0aL9ZpAWRv9bPNbCsPwjQWuS3uWoadN4tSp88DEtKvEtocNYB8j/3FwncMqYwS6XtK8voBcgSKOPggKpffe+dPkDzOKbSP+zjk0a467Aw1OaKEaSYQwK6R0pyRgWr1iO2LQZzPiCMM/yBroHWtCz7lc3t3/qd/jyt/e3sTv7tM+Jj3Cfhz2357i0JO9XduWaIUWUgfhuHOF1/91S1jznY6GGpp8/ujYJeKhk6JE7f1lGkXW/kp5F0wzPSpAgN5oKm9rx5rMZy+ouNMFIkMoQogGoQc3VDHv9D1QXeqGZt+4g6r72bMWDD1xu/zTrgEmDTkiYWQHqGiSAnGIGuKAfbHLRQT3YzQjOyHfXDW9rKMKHcvyN4WTW0Mv2WJ5KX96jfepcFGZ8AACkjI2PfWSTechl0Ll2hQRI98+g88dY0JN2H1USZWrMuD0qocPG3PtGzmxD4H/vk2MntYKdCG9/dgC3aLqDHWYgaQKwGmr+tSAu/lh+WnITgYzqum/djoPpuGclRzV1djVKcwFnvewzhALfPh4up0BDwcfHL2Dbrl6PMhspDPcoRKDAF+Dv+l4jrdvY4eH7hXlKRzOv3DCO3kSL9YVIbyVJlc2hN39jGQSLihuxVA1e2QijPm9RgBIfe/5cLMH1cFE1sbNCbuDo44x7Lb4izCP1J9M=
   bucket: artifacts.goa.design
   local-dir: public/godoc/encoding
-  upload-dir: public/godoc/encoding
+  upload-dir: godoc/encoding
   skip-cleanup: true
   acl: public-read
   on:
