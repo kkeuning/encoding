@@ -28,8 +28,8 @@ all: depend lint cyclo test
 
 docs:
 	@git clone https://github.com/goadesign/goa.design
-	@rm -rf goa.design/content/godoc goa.design/public
-	@mdc github.com/goadesign/encoding goa.design/content/godoc --exclude goa.design
+	@rm -rf goa.design/content/reference goa.design/public
+	@mdc github.com/goadesign/encoding goa.design/content/reference --exclude goa.design
 	@cd goa.design && hugo --theme goa --uglyURLs=true
 	@rm -rf public
 	@mv goa.design/public public
