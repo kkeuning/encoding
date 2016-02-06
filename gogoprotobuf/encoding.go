@@ -43,6 +43,7 @@ func (f *Factory) NewDecoder(r io.Reader) goa.Decoder {
 	return &ProtoDecoder{
 		pBuf: proto.NewBuffer(nil),
 		bBuf: &bytes.Buffer{},
+		r:    r,
 	}
 }
 
