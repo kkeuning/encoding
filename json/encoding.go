@@ -20,7 +20,7 @@ type Factory struct{}
 var h codec.JsonHandle
 
 // DecoderFactory is the default factory used by the goa `Consumes` DSL
-func DecoderFactory() goa.EncoderFactory {
+func DecoderFactory() goa.DecoderFactory {
 	return &Factory{}
 }
 
