@@ -14,7 +14,7 @@ DIRS=$(shell go list -f {{.Dir}} ./...)
 DEPEND=\
 	github.com/asaskevich/govalidator \
 	github.com/goadesign/goa.design/tools/mdc \
-	github.com/goadesign/godoc2md \
+	github.com/goadesign/goa.design/tools/godoc2md \
 	github.com/golang/lint/golint \
 	github.com/on99/gocyclo \
 	github.com/onsi/ginkgo \
