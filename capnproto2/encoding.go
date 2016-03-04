@@ -16,9 +16,6 @@ var (
 )
 
 type (
-	// Factory uses github.com/ugorji/go/codec to act as an DecoderFactory and EncoderFactory
-	Factory struct{}
-
 	// ProtoDecoder stores state between Reset and Decode
 	ProtoDecoder struct {
 		dec *capnp.Decoder
@@ -30,15 +27,17 @@ type (
 	}
 )
 
-// DecoderFactory is the default factory used by the goa `Consumes` DSL
-func DecoderFactory() goa.EncoderFactory {
-	return &Factory{}
-}
-
 // NewDecoder returns a new capnp.Decoder that satisfies goa.Decoder
-func (f *Factory) NewDecoder(r io.Reader) goa.Decoder {
+func NewDecoder(r io.Reader) goa.Decoder {
 	return &ProtoDecoder{
 		dec: capnp.NewDecoder(r),
+	}
+}
+
+// NewPackedDecoder returns a new packed capnp.Decoder that satisfies goa.Decoder
+func NewPackedDecoder(r io.Reader) goa.Decoder {
+	return &ProtoDecoder{
+		dec: capnp.NewPackedDecoder(r),
 	}
 }
 
@@ -63,15 +62,17 @@ func (dec *ProtoDecoder) Decode(v interface{}) error {
 	return nil
 }
 
-// EncoderFactory is the default factory used by the goa `Produces` DSL
-func EncoderFactory() goa.EncoderFactory {
-	return &Factory{}
-}
-
 // NewEncoder returns a new capnp.Encoder that satisfies goa.Encoder
-func (f *Factory) NewEncoder(w io.Writer) goa.Encoder {
+func NewEncoder(w io.Writer) goa.Encoder {
 	return &ProtoEncoder{
 		enc: capnp.NewEncoder(w),
+	}
+}
+
+// NewPackedEncoder returns a new packed capnp.Encoder that satisfies goa.Encoder
+func NewPackedEncoder(w io.Writer) goa.Encoder {
+	return &ProtoEncoder{
+		enc: capnp.NewPackedEncoder(w),
 	}
 }
 

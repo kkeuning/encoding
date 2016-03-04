@@ -9,7 +9,7 @@
 #
 # Meta targets:
 # - "all" is the default target, it runs all the targets in the order above.
-#
+#http://goa.design/reference/goa/design/apidsl.html#func-consumes-a-name-apidsl-consumes-a:aab4f9d6f98ed71f45bd470427dde2a7
 DIRS=$(shell go list -f {{.Dir}} ./...)
 DEPEND=\
 	github.com/asaskevich/govalidator \

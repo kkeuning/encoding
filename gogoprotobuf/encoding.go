@@ -16,9 +16,6 @@ var (
 )
 
 type (
-	// Factory uses github.com/ugorji/go/codec to act as an DecoderFactory and EncoderFactory
-	Factory struct{}
-
 	// ProtoDecoder stores state between Reset and Decode
 	ProtoDecoder struct {
 		pBuf *proto.Buffer
@@ -33,13 +30,8 @@ type (
 	}
 )
 
-// DecoderFactory is the default factory used by the goa `Consumes` DSL
-func DecoderFactory() goa.DecoderFactory {
-	return &Factory{}
-}
-
 // NewDecoder returns a new proto.Decoder that satisfies goa.Decoder
-func (f *Factory) NewDecoder(r io.Reader) goa.Decoder {
+func NewDecoder(r io.Reader) goa.Decoder {
 	return &ProtoDecoder{
 		pBuf: proto.NewBuffer(nil),
 		bBuf: &bytes.Buffer{},
@@ -75,13 +67,8 @@ func (dec *ProtoDecoder) Reset(r io.Reader) {
 	dec.r = r
 }
 
-// EncoderFactory is the default factory used by the goa `Produces` DSL
-func EncoderFactory() goa.EncoderFactory {
-	return &Factory{}
-}
-
 // NewEncoder returns a new proto.Encoder that satisfies goa.Encoder
-func (f *Factory) NewEncoder(w io.Writer) goa.Encoder {
+func NewEncoder(w io.Writer) goa.Encoder {
 	return &ProtoEncoder{
 		pBuf: proto.NewBuffer(nil),
 		w:    w,
